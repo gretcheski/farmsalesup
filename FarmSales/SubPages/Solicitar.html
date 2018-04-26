@@ -1,0 +1,140 @@
+﻿<!-- Page Content -->
+<style>
+    #map {
+        height: 100%;
+        width: 500px;
+        height: 300px;
+    }
+</style>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Cadastro de Entregas
+                <small>Faça o pedido de seu frete!</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Home</a></li>
+                <li class="active">Cadastro de Entregas</li>
+            </ol>
+        </div>
+
+        
+
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+
+        <div class="col-sm-12">
+            <h3>Solicite o Serviço!</h3>
+
+            <p>
+                Basta preencher os campos de endereço de partida e de chegada da mercadoria,
+                selecionar um valor aproximado do item para reforçarmos a segurança do frete e, por fim,
+                escolher a criticidade da entrega para priorização! <strong>No nosso caso, a pressa não influencia na perfeição!</strong>
+            </p>
+
+            <form role="form" method="POST" id="deliveryform" ng-controller="PageCtrl">
+                <div-- class="row">
+                    <div class="form-group col-lg-4">
+                        <label for="origin">Endereço de Retirada</label>
+                        <input type="text" name="origin_input" class="form-control" id="origin">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label for="destination">Endereço de Entrega</label>
+                        <input type="text" name="destination_input" class="form-control" id="destination">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label for="mode">Modo de transporte</label>
+                        <select class="select" id="mode">
+                            <option value="DRIVING">Carro</option>
+                            <option value="WALKING">Pedestre</option>
+                            <option value="BICYCLING">Bicicleta</option>
+                            <option value="TRANSIT">Trans. Público</option>
+                        </select>
+                    </div>
+                    <br />
+                    <div style="height:100%; width:100%;">
+                        <div id="map"></div>
+                    </div>
+                    <br />
+                    <div id="rtTime"></div>
+                    <div id="rtDistance"></div>
+                    <br />
+                    <div class="form-group col-lg-4">
+                        <!--input type="button" value="submit" id="submit_mapinfo" onclick="calculateAndDisplayRoute()"/-->
+                        <button type="submit" class="btn btn-primary" id="submit_mapinfo">Traçar Rota</button>
+                    </div>
+                    <br />
+                    <div class="form-group col-lg-12">
+                        <div><label for="itemValue">Valor Aproximado</label></div>
+                        <div><input type="radio" ng-model="itemValue" value="1">0 - 50</div>
+                        <div><input type="radio" ng-model="itemValue" value="2">50 - 100</div>
+                        <div><input type="radio" ng-model="itemValue" value="3">100 - 200</div>
+                    </div>
+                    <div class="form-group col-lg-12" id="urgencyDiv" style="display:none">
+                        <div><label for="urgencyId">Urgência</label></div>
+                        <div><input type="radio" ng-model="urgencyId" value="1">Normal</div>
+                        <div><input type="radio" ng-model="urgencyId" value="2">Alta</div>
+                        <div><input type="radio" ng-model="urgencyId" value="3">Crítica</div>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <input type="hidden" name="save" value="contact">
+                        <div ng-controller="PageCtrl">
+                            <input type="button" class="btn btn-primary" value="Calcular Preço" ng-click="showModal()" />
+                        </div>
+                    </div>
+                    <div ng-app="izerspa">
+                        <script type="text/ng-template" id="myModal.html">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Preço do Serviço</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p><strong>Preço calculado:</strong> R$: {{preco}}</p>
+                                <div ng-bind-html="body" ng-bind="$sanitize.body"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" ng-click="ok()">Confirmar e Pagar</button>
+                                <button class="btn btn-warning" ng-click="cancel()">Cancelar</button>
+                            </div>
+                        </script>
+                    </div>
+            </form>
+        </div>
+        <div ng-app="izerspa" style="display:none">
+            <!-- Declaração do formulário -->
+            <form method="post" target="pagseguro" id="formPagSeguro"
+                  action="https://pagseguro.uol.com.br/v2/checkout/payment.html">
+
+                <!-- Campos obrigatórios -->
+                <input name="receiverEmail" type="hidden" value="gabrielretcheski@hotmail.com">
+                <input name="currency" type="hidden" value="BRL">
+
+                <!-- Itens do pagamento (ao menos um item é obrigatório) -->
+                <input name="itemId1" type="hidden" value="0001">
+                <input name="itemDescription1" type="hidden" value="Serviço de Entrega">
+                <input name="itemAmount1" type="hidden" value="11.30">
+                <input name="itemQuantity1" type="hidden" value="1">
+                <input name="itemWeight1" type="hidden" value="1">
+
+                <!-- submit do form (obrigatório) -->
+                <input alt="Pague com PagSeguro" name="submit" type="image"
+                       src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/120x53-pagar.gif" />
+
+            </form>
+        </div>
+        </div>
+    </div>
+    <!-- /.row -->
+<div class="container">
+
+    <hr />
+    <br />
+    <p style="text-align:center"><strong>2017 - Copyrights</strong> iZer Solutions®</p>
+</div>
+<!-- /.container -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_3MxmZzf96l0MbM-Q9WMhHaOjZdNkAvw&callback=initMap"></script>

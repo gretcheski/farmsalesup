@@ -1,0 +1,101 @@
+﻿<div class="container">
+
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Meu Perfil
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="../index.html">Home</a>
+                </li>
+                <li class="active">Meu Perfil</li>
+            </ol>
+        </div>
+    <div class="col-lg-6">
+        <div ><h2 style="text-align:center">Alterar senha</h2></div>
+        <div>
+            <form name="form" ng-submit="vm.register()" role="form">
+                <div class="form-group" ng-class="{ 'has-error': form.Password.$dirty && form.Password.$error.required }">
+                    <label for="Password">Senha atual</label>
+                    <input type="password" name="Password" id="Password" class="form-control" ng-model="vm.user.Password" required />
+                    <span ng-show="form.Password.$dirty && form.Password.$error.required" class="help-block">Senha atual é necessária</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': form.NewPassword.$dirty && form.NewPassword.$error.required }">
+                    <label for="NewPassword">Nova senha</label>
+                    <input type="password" name="NewPassword" id="NewPassword" class="form-control" ng-model="vm.user.NewPassword" required />
+                    <span ng-show="form.NewPassword.$dirty && form.NewPassword.$error.required" class="help-block">Nova senha é necessária</span>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': form.ConfirmNewPassword.$dirty && form.ConfirmNewPassword.$error.required }">
+                    <label for="ConfirmNewPassword">Confirmar nova senha</label>
+                    <input type="password" name="ConfirmNewPassword" id="ConfirmNewPassword" class="form-control" ng-model="vm.user.ConfirmNewPassword" required />
+                    <span ng-show="form.ConfirmNewPassword.$dirty && form.ConfirmNewPassword.$error.required" class="help-block">Confirmar senha é necessário</span>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Alterar senha</button>
+                    <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                </div>
+            </form>
+        </div>
+        <br />
+    </div>
+    <div class="col-lg-6">
+        <div ><h2 style="text-align:center">Avaliação Atual</h2></div>
+        <div ng-app="app" ng-controller="RatingController">
+            <div style="text-align:center">
+                <span style="font-size:40px;">{{stars}}</span><span style="font-size:25px;"> / </span><span style="font-size:50px;">5</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <ol class="breadcrumb" style="text-align:center;">
+            <li class="active"><h4><strong>Histórico de Entregas</strong></h4></li>
+        </ol>
+    </div>
+
+    
+    <div class="col-sm-6"><h4 style="text-align:center">Histórico de Solicitante</h4></div>
+    <div class="col-sm-6"><h4 style="text-align:center">Histórico de Motorista</h4></div>
+    <div ng-app="app" ng-controller="UserHistoryController">
+            <table id="user-details-in-table" class="col-sm-6">
+                <thead>
+                    <tr>
+                        <th>Motorista</th>
+                        <th>Distância Percorrida</th>
+                        <th>Pänico acionado?</th>
+                        <th>Urgência</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="delivery in deliveries">
+                        <td>{{ delivery.DriverAssignedEmail }}</td>
+                        <td>{{ delivery.RouteDistance }}</td>
+                        <td>{{ changePanicHtml(delivery) }}</td>
+                        <td ng-class="{'color-red': delivery.UrgencyId === 3, 'color-yellow': delivery.UrgencyId === 2, 'color-green': delivery.UrgencyId === 1}">{{ delivery.UrgencyId }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <div class="col-sm-1"></div>
+
+        <div ng-app="app" ng-controller="DriverHistoryController">
+            <table id="user-details-in-table" class="col-sm-5">
+                <thead>
+                    <tr>
+                        <th>Solicitante</th>
+                        <th>Distância Percorrida</th>
+                        <th>Pänico acionado?</th>
+                        <th>Urgência</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="delivery in deliveries">
+                        <td>{{ delivery.RequesterEmail }}</td>
+                        <td>{{ delivery.RouteDistance }}</td>
+                        <td>{{ changePanicHtml(delivery) }}</td>
+                        <td ng-class="{'color-red': delivery.UrgencyId === 3, 'color-yellow': delivery.UrgencyId === 2, 'color-green': delivery.UrgencyId === 1}">{{ delivery.UrgencyId }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

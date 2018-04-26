@@ -1,0 +1,48 @@
+﻿<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="PageCtrl">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+            <a class="navbar-brand" href="#/">
+                <img src="http://i.imgur.com/3cDr8Ay.png" alt="iZer" style="width: 40px; margin-top: -10px;">
+                </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#/entregadores">Entregadores</a>
+                </li>
+                <li ng-show="userLoggedIn">
+                    <a href="#/metas">Metas</a>
+                </li>
+                <li ng-show="userLoggedIn">
+                    <a href="#/realizar">Realizar</a>
+                </li>
+                <li ng-show="userLoggedIn">
+                    <a href="#/solicitar">Solicitar</a>
+                </li>
+                <li ng-hide="userLoggedIn">
+                    <a href="#/register">Registre-se</a>
+                </li>
+                <li ng-hide="userLoggedIn">
+                    <a href="#/login">Entrar</a>
+                </li>
+                <li ng-show="userLoggedIn">
+                    <a href="#/perfil">Meu Perfil</a>
+                </li>
+                <li ng-show="userLoggedIn">
+                    <a href="#/login">Sair</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
