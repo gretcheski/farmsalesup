@@ -5624,7 +5624,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     }
 
 .navbar-inverse {
-    background-color: #7d1313;
+    background-color: #3e3800;
 }
 
     .navbar-inverse .navbar-brand {
@@ -5642,7 +5642,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     }
 
     .navbar-inverse .navbar-nav > li > a {
-        color: #9d9d9d;
+        color: #ffec00;
     }
 
         .navbar-inverse .navbar-nav > li > a:hover,

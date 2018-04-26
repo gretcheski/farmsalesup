@@ -72,37 +72,47 @@ body {
     font-size: 16px;
 }
 
+a {
+    color: #615b00;
+    text-decoration: none;
+}
+
 .dropdown {
     cursor: pointer;
 }
 
 .btn-primary {
-    background-color: #862727;
-    border-color: #6f2525;
+    background-color: #4e4000;
+    border-color: #424100;
 }
 
-.btn-primary:hover {
-        background-color: #2b0505;
-        border-color: #2b0505;
-}
-
-    .btn-primary:active {
-        background: #2b0505;
+    .btn-primary:hover {
+        background-color: #3f3300;
+        border-color: #424100;
     }
 
+    .btn-primary:active {
+        background: #2c2400;
+    }
+
+        .btn-primary:active:focus {
+            background: #2c2800;
+            outline: none; !important
+        }
+
     .btn-primary:focus {
-        background: #2b0505;
+        background: #2c2400;
     }
 
     .btn-primary:disabled {
-        background-color: #862727;
-        border-color: #6f2525;
+        background-color: #867c4b;
+        border-color: #424100;
     }
 
-    .btn-primary:disabled:hover {
-        background-color: #2b0505;
-        border-color: #2b0505;
-    }
+        .btn-primary:disabled:hover {
+            background-color: #6c643c;
+            border-color: #424100;
+        }
 
 .btn-link {
     font-weight: 400;
@@ -121,7 +131,7 @@ body {
 }
 
 .section-colored {
-    background-color: #e1e1e1;
+    background-color: #f3f3f3;
     /* change this to change the background color of a colored section */
 }
 
