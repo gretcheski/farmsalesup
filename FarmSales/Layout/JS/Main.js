@@ -11,10 +11,10 @@ app.config(['$routeProvider', function ($routeProvider) {
         // Home
         .when("/", { templateUrl: "SubPages/Home.html", controller: "PageCtrl" })
         // Pages
-        .when("/metas", { templateUrl: "SubPages/Metas.html", controller: "PageCtrl" })
-        .when("/realizar", { templateUrl: "SubPages/Realizar.html", controller: "PageCtrl" })
-        .when("/entregadores", { templateUrl: "SubPages/Entregadores.html", controller: "PageCtrl" })
-        .when("/solicitar", { templateUrl: "SubPages/Solicitar.html", controller: "PageCtrl" })
+        .when("/noticias", { templateUrl: "SubPages/noticias.html", controller: "PageCtrl" })
+        .when("/mercado", { templateUrl: "SubPages/mercado.html", controller: "PageCtrl" })
+        .when("/detalhes", { templateUrl: "SubPages/detalhes.html", controller: "PageCtrl" })
+        .when("/investimentos", { templateUrl: "SubPages/investimentos.html", controller: "PageCtrl" })
         .when("/perfil", { templateUrl: "SubPages/MeuPerfil.html", controller: "PageCtrl" })
         .when("/termosdeuso", { templateUrl: "SubPages/TermosDeUso.html", controller: "PageCtrl" })
         // else 404
