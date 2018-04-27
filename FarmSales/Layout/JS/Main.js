@@ -67,6 +67,16 @@ app.controller('Principal', ['$scope', '$compile', '$http', function ($scope, $c
         }
     ];
 
+    $scope.accordionInvestments = [
+        {
+            "title": " 0.62 BTC / HORA", "topContent": "New York, USA", "bottomContent": "R$ 580,90"
+        }, {
+            "title": " 0.50 BTC / HORA", "topContent": "New Jersey, USA", "bottomContent": "R$ 385,44"
+        }, {
+            "title": " 0.43 BTC / HORA", "topContent": "Toronto, CAN", "bottomContent": "R$ 181,51"
+        }
+    ];
+
     $scope.activeArray = 1;
     $scope.coord = '';
     $scope.accordionConfig = {
@@ -83,7 +93,7 @@ app.controller('Principal', ['$scope', '$compile', '$http', function ($scope, $c
         afterTopContent: '<span><strong>Custo atual por % do farm: </strong></span>',
         bottomContentClass: '',
         beforeBottomContent: '',
-        afterBottomContent: '</br>'
+        afterBottomContent: '</br><a href="#/detalhes">Detalhes</a></br></br>'
     };
 
     $scope.toggleAutoCollapse = function () {
