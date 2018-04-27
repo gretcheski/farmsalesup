@@ -96,6 +96,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Layout\JS\angular-fusioncharts.min.js" />
+    <Content Include="Layout\JS\fusioncharts.charts.js" />
+    <Content Include="Layout\JS\fusioncharts.js" />
+    <Content Include="Layout\JS\fusioncharts.theme.carbon.js" />
+    <Content Include="SubPages\Images\washedout.png" />
     <Content Include="Views\web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -123,14 +128,13 @@
     <Content Include="Layout\JS\sir-accordion.min.js" />
     <Content Include="Layout\JS\ui-bootstrap-tpls-2.5.0.min.js" />
     <Content Include="Layout\JS\velocity.min.js" />
-    <Content Include="SubPages\Home.html" />
-    <Content Include="SubPages\Errors\404.html" />
-    <Content Include="SubPages\Detalhes.html" />
     <Content Include="SubPages\Noticias.html" />
+    <Content Include="SubPages\Errors\404.html" />
+    <Content Include="SubPages\Home.html" />
     <Content Include="SubPages\Images\icone.png" />
     <Content Include="SubPages\Images\splash.png" />
     <Content Include="SubPages\Mercado.html" />
-    <Content Include="SubPages\MeuPerfil.html" />
+    <Content Include="SubPages\Detalhes.html" />
     <Content Include="SubPages\Partials\Footer.html" />
     <Content Include="SubPages\Partials\Header.html" />
     <Content Include="SubPages\Investimentos.html" />

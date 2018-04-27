@@ -1,31 +1,31 @@
 ﻿<div class="container">
 
-    <div class="row">
-
         <div class="col-lg-12">
             <h1 class="page-header">
-                Metas
-                <small>Complete as metas para receber prêmios!</small>
+                Detalhes
             </h1>
             <ol class="breadcrumb">
                 <li>
                     <a href="../index.html">Home</a>
                 </li>
-                <li class="active">Metas</li>
+                <li class="active">Detalhes do Farm</li>
             </ol>
         </div>
-
-    </div>
-
-    <div ng-app="izerspa" ng-controller="progressBar" class="container">
-
-        <div class="page-header">
-            <h1><small>Km percorridos em entregas</small></h1>
+    <div class="col-lg-6" ng-controller="ChartController">
+        <div fusioncharts
+             width="600"
+             height="400"
+             type="mscombi2d"
+             dataSource="{{myDataSource}}">
         </div>
-
+    </div>
+    <div class="col-lg-6">
+        <div ><h2 style="text-align:center">Avaliação Atual</h2></div>
         <div>
-            <progressbar class="progress-striped active" animate="true" max="100" value="progressValue" type="success"><i><span count-to="{{countTo}}" duration="1" count-from="{{countFrom}}"></span> / 100</i></progressbar>
+            <div style="text-align:center">
+                <span style="font-size:40px;">4</span><span style="font-size:25px;"> / </span><span style="font-size:50px;">5</span>
+            </div>
         </div>
     </div>
 
-<!-- /.container -->
+</div>

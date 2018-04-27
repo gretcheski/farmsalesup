@@ -1,7 +1,7 @@
 ﻿/**
  * Main AngularJS Web Application
  */
-var app = angular.module('izerspa', ['ngRoute', 'ngCookies', 'ui.bootstrap', 'countTo', 'sir-accordion', 'ngSanitize']);
+var app = angular.module('izerspa', ['ngRoute', 'ngCookies', 'ui.bootstrap', 'countTo', 'sir-accordion', 'ngSanitize', 'ng-fusioncharts']);
 
 /**
  * Configure the Routes
@@ -13,9 +13,8 @@ app.config(['$routeProvider', function ($routeProvider) {
         // Pages
         .when("/noticias", { templateUrl: "SubPages/noticias.html", controller: "PageCtrl" })
         .when("/mercado", { templateUrl: "SubPages/mercado.html", controller: "PageCtrl" })
-        .when("/detalhes", { templateUrl: "SubPages/detalhes.html", controller: "PageCtrl" })
         .when("/investimentos", { templateUrl: "SubPages/investimentos.html", controller: "PageCtrl" })
-        .when("/perfil", { templateUrl: "SubPages/MeuPerfil.html", controller: "PageCtrl" })
+        .when("/detalhes", { templateUrl: "SubPages/Detalhes.html", controller: "PageCtrl" })
         .when("/termosdeuso", { templateUrl: "SubPages/TermosDeUso.html", controller: "PageCtrl" })
         // else 404
         .when("/404", { templateUrl: "SubPages/Errors/404.html", controller: "PageCtrl" })
@@ -32,45 +31,6 @@ app.config(['$locationProvider', function ($locationProvider) {
 app.controller('PageCtrl', function ($scope, $http, $rootScope, $modal, $sanitize, $document) {
 
     console.log("Page Controller reporting for duty.");
-});
-
-
-/*app.run(['$rootScope', '$location', '$cookies', '$http',
-    function run($rootScope, $location, $cookies, $http) {
-        // keep user logged in after page refresh
-        $rootScope.globals = $cookies.getObject('globals') || {};
-        if ($rootScope.globals.currentUser) {
-            $http.defaults.headers.common['Authorization'] = 'Bearer ' + $rootScope.globals.currentUser.authdata;
-        }
-
-        $rootScope.$on('$locationChangeStart', function (event, next, current) {
-            // redirect to login page if not logged in and trying to access a restricted page
-            var restrictedPage = $.inArray($location.path(), ["/login", "/register", "/entregadores", "/termosdeuso", "/"]) === -1;
-            var loggedIn = $rootScope.globals.currentUser;
-            if (restrictedPage && !loggedIn) {
-                $location.path("/login");
-            }
-        });
-    }]);*/
-
-/*progress bar*/
-app.controller("progressBar", function ($scope, $timeout, $http) {
-
-    $http.get('http://localhost:58255/api/customers/prizes')
-        .then(function (response) {
-            $scope.amt = response.data;
-            $scope.countTo = response.data;
-            $scope.countFrom = 0;
-            console.log(response);
-        });
-
-   // $scope.countTo = countToGet;
-   // $scope.countFrom = 0;
-
-    $timeout(function () {
-        $scope.progressValue = $scope.amt;
-    }, 200);
-
 });
 
 /* Accordion -> Melhorar visual dos accordions. */
@@ -132,13 +92,144 @@ app.controller('Principal', ['$scope', '$compile', '$http', function ($scope, $c
 
 }]); 
 
-// controller da nota do usuário
-
-app.controller('RatingController', function ($scope, $http) {
-
-    $http.get('http://localhost:58255/api/customers/rating')
-        .then(function (response) {
-            $scope.stars = response.data;
-        });
-
-})
+app.controller('ChartController', function ($scope) {
+    $scope.myDataSource = {
+        "chart": {
+            "caption": "Retorno Mensal dos Investimentos",
+            "subcaption": "ANO PASSADO",
+            "xaxisname": "Mês",
+            "yaxisname": "Quantia (em R$)",
+            "numberprefix": "R$",
+            "theme": "carbon"
+        },
+        "categories": [
+            {
+                "category": [
+                    {
+                        "label": "Jan"
+                    },
+                    {
+                        "label": "Fev"
+                    },
+                    {
+                        "label": "Mar"
+                    },
+                    {
+                        "label": "Abr"
+                    },
+                    {
+                        "label": "Mai"
+                    },
+                    {
+                        "label": "Jun"
+                    },
+                    {
+                        "label": "Jul"
+                    },
+                    {
+                        "label": "Ago"
+                    },
+                    {
+                        "label": "Set"
+                    },
+                    {
+                        "label": "Out"
+                    },
+                    {
+                        "label": "Nov"
+                    },
+                    {
+                        "label": "Dez"
+                    }
+                ]
+            }
+        ],
+        "dataset": [
+            {
+                "seriesname": "Retorno obtido",
+                "data": [
+                    {
+                        "value": "16000"
+                    },
+                    {
+                        "value": "20000"
+                    },
+                    {
+                        "value": "18000"
+                    },
+                    {
+                        "value": "19000"
+                    },
+                    {
+                        "value": "15000"
+                    },
+                    {
+                        "value": "21000"
+                    },
+                    {
+                        "value": "16000"
+                    },
+                    {
+                        "value": "20000"
+                    },
+                    {
+                        "value": "17000"
+                    },
+                    {
+                        "value": "25000"
+                    },
+                    {
+                        "value": "19000"
+                    },
+                    {
+                        "value": "23000"
+                    }
+                ]
+            },
+            {
+                "seriesname": "Retorno projetado",
+                "renderas": "line",
+                "showvalues": "0",
+                "data": [
+                    {
+                        "value": "15000"
+                    },
+                    {
+                        "value": "16000"
+                    },
+                    {
+                        "value": "17000"
+                    },
+                    {
+                        "value": "18000"
+                    },
+                    {
+                        "value": "19000"
+                    },
+                    {
+                        "value": "19000"
+                    },
+                    {
+                        "value": "19000"
+                    },
+                    {
+                        "value": "19000"
+                    },
+                    {
+                        "value": "20000"
+                    },
+                    {
+                        "value": "21000"
+                    },
+                    {
+                        "value": "22000"
+                    },
+                    {
+                        "value": "23000"
+                    }
+                ]
+            }
+        
+        ]
+    };
+});
