@@ -100,6 +100,8 @@
     <Content Include="Layout\JS\fusioncharts.charts.js" />
     <Content Include="Layout\JS\fusioncharts.js" />
     <Content Include="Layout\JS\fusioncharts.theme.carbon.js" />
+    <Content Include="SubPages\Images\Bitcoin-graph-chart-slant.jpg" />
+    <Content Include="SubPages\Images\farmsales-full.png" />
     <Content Include="SubPages\Images\washedout.png" />
     <Content Include="Views\web.config" />
     <None Include="Web.Debug.config">
