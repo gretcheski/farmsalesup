@@ -101,8 +101,8 @@
     <Content Include="Layout\JS\fusioncharts.js" />
     <Content Include="Layout\JS\fusioncharts.theme.carbon.js" />
     <Content Include="SubPages\Images\Bitcoin-graph-chart-slant.jpg" />
+    <Content Include="SubPages\Images\farmsales-fs.png" />
     <Content Include="SubPages\Images\farmsales-full.png" />
-    <Content Include="SubPages\Images\washedout.png" />
     <Content Include="Views\web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -133,8 +133,6 @@
     <Content Include="SubPages\Noticias.html" />
     <Content Include="SubPages\Errors\404.html" />
     <Content Include="SubPages\Home.html" />
-    <Content Include="SubPages\Images\icone.png" />
-    <Content Include="SubPages\Images\splash.png" />
     <Content Include="SubPages\Mercado.html" />
     <Content Include="SubPages\Detalhes.html" />
     <Content Include="SubPages\Partials\Footer.html" />
