@@ -44,11 +44,28 @@ app.run([function () {
 }]);
 
 app.controller('Principal', ['$scope', '$compile', '$http', function ($scope, $compile, $http) {
-        $http.get('http://localhost:58255/api/v1/deliveries')
-            .then(function (response) {
-                $scope.accordionArray = response.data;
-                console.log(response);
-        });
+
+    $scope.accordionArray = [
+        {
+            "title": " 0.71 BTC / HORA", "topContent": "São Paulo, BRA", "bottomContent": "R$ 887,83"
+        },{
+            "title": " 0.63 BTC / HORA", "topContent": "Los Angeles, USA", "bottomContent": "R$ 932,85"
+        }, {
+            "title": " 0.62 BTC / HORA", "topContent": "Buenos Aires, ARG", "bottomContent": "R$ 1383,33"
+        }, {
+            "title": " 0.62 BTC / HORA", "topContent": "New York, USA", "bottomContent": "R$ 580,90"
+        }, {
+            "title": " 0.61 BTC / HORA", "topContent": "Los Angeles, USA", "bottomContent": "R$ 620,12"
+        }, {
+            "title": " 0.53 BTC / HORA", "topContent": "London, ENG", "bottomContent": "R$ 527,50"
+        }, {
+            "title": " 0.51 BTC / HORA", "topContent": "Paris, FRA", "bottomContent": "R$ 890,00"
+        }, {
+            "title": " 0.50 BTC / HORA", "topContent": "New Jersey, USA", "bottomContent": "R$ 385,44"
+        }, {
+            "title": " 0.43 BTC / HORA", "topContent": "Toronto, CAN", "bottomContent": "R$ 181,51"
+        }
+    ];
 
     $scope.activeArray = 1;
     $scope.coord = '';
@@ -59,14 +76,14 @@ app.controller('Principal', ['$scope', '$compile', '$http', function ($scope, $c
         autoCollapse: true,
         watchInternalChanges: false,
         headerClass: '',
-        beforeHeader: '<span><strong>Urgência: </strong></span>',
+        beforeHeader: '</br><span><strong>Rendimento atual: </strong></span>',
         afterHeader: '',
         topContentClass: '',
-        beforeTopContent: '<span><strong>Endereço de Retirada:</strong></span>',
-        afterTopContent: '<span><strong>Tempo Estimado de Rota (em minutos):</strong></span>',
+        beforeTopContent: '<span><strong>Localização do farm: </strong></span>',
+        afterTopContent: '<span><strong>Custo atual por % do farm: </strong></span>',
         bottomContentClass: '',
-        beforeBottomContent: '<span><strong>Valor do Serviço (em reais):</strong></span>',
-        afterBottomContent: ''
+        beforeBottomContent: '',
+        afterBottomContent: '</br>'
     };
 
     $scope.toggleAutoCollapse = function () {

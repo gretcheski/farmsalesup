@@ -95,14 +95,23 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Layout\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Layout\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Layout\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Layout\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="packages.config" />
+    <Content Include="Layout\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Layout\JS\angular-fusioncharts.min.js" />
     <Content Include="Layout\JS\fusioncharts.charts.js" />
     <Content Include="Layout\JS\fusioncharts.js" />
     <Content Include="Layout\JS\fusioncharts.theme.carbon.js" />
+    <Content Include="SubPages\Images\1200x300.jpg" />
     <Content Include="SubPages\Images\Bitcoin-graph-chart-slant.jpg" />
+    <Content Include="SubPages\Images\Bitcoin-Mineração.jpg" />
     <Content Include="SubPages\Images\farmsales-fs.png" />
     <Content Include="SubPages\Images\farmsales-full.png" />
+    <Content Include="SubPages\Images\nasqaq.jpg" />
+    <Content Include="SubPages\Images\ZCash.png" />
     <Content Include="Views\web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
