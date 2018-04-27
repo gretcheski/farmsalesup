@@ -96,7 +96,7 @@ app.controller('ChartController', function ($scope) {
     $scope.myDataSource = {
         "chart": {
             "caption": "Retorno Mensal dos Investimentos",
-            "subcaption": "ANO PASSADO",
+            "subcaption": "Últimos 12 meses",
             "xaxisname": "Mês",
             "yaxisname": "Quantia (em R$)",
             "numberprefix": "R$",
@@ -105,18 +105,6 @@ app.controller('ChartController', function ($scope) {
         "categories": [
             {
                 "category": [
-                    {
-                        "label": "Jan"
-                    },
-                    {
-                        "label": "Fev"
-                    },
-                    {
-                        "label": "Mar"
-                    },
-                    {
-                        "label": "Abr"
-                    },
                     {
                         "label": "Mai"
                     },
@@ -140,6 +128,18 @@ app.controller('ChartController', function ($scope) {
                     },
                     {
                         "label": "Dez"
+                    },
+                    {
+                        "label": "Jan"
+                    },
+                    {
+                        "label": "Fev"
+                    },
+                    {
+                        "label": "Mar"
+                    },
+                    {
+                        "label": "Abr"
                     }
                 ]
             }
