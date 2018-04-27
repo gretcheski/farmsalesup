@@ -111,6 +111,7 @@
     <Content Include="SubPages\Images\farmsales-fs.png" />
     <Content Include="SubPages\Images\farmsales-full.png" />
     <Content Include="SubPages\Images\nasqaq.jpg" />
+    <Content Include="SubPages\Images\woman-datacenter.jpg" />
     <Content Include="SubPages\Images\ZCash.png" />
     <Content Include="Views\web.config" />
     <None Include="Web.Debug.config">

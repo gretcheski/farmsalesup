@@ -69,11 +69,11 @@ app.controller('Principal', ['$scope', '$compile', '$http', function ($scope, $c
 
     $scope.accordionInvestments = [
         {
-            "title": " 0.62 BTC / HORA", "topContent": "New York, USA", "bottomContent": "R$ 580,90"
+            "title": "+0.33 BTC / HORA", "topContent": " 0.62 BTC / HORA", "bottomContent": "R$ 580,90"
         }, {
-            "title": " 0.50 BTC / HORA", "topContent": "New Jersey, USA", "bottomContent": "R$ 385,44"
+            "title": "+0.06 BTC / HORA", "topContent": " 0.50 BTC / HORA", "bottomContent": "R$ 385,44"
         }, {
-            "title": " 0.43 BTC / HORA", "topContent": "Toronto, CAN", "bottomContent": "R$ 181,51"
+            "title": "+0.12 BTC / HORA", "topContent": " 0.43 BTC / HORA", "bottomContent": "R$ 181,51"
         }
     ];
 
@@ -90,6 +90,23 @@ app.controller('Principal', ['$scope', '$compile', '$http', function ($scope, $c
         afterHeader: '',
         topContentClass: '',
         beforeTopContent: '<span><strong>Localização do farm: </strong></span>',
+        afterTopContent: '<span><strong>Custo atual por % do farm: </strong></span>',
+        bottomContentClass: '',
+        beforeBottomContent: '',
+        afterBottomContent: '</br><a href="#/detalhes">Detalhes</a></br></br>'
+    };
+
+    $scope.accordionConfig2 = {
+        debug: false,
+        animDur: 300,
+        expandFirst: false,
+        autoCollapse: true,
+        watchInternalChanges: false,
+        headerClass: '',
+        beforeHeader: '</br><span><strong>Expansão do farm dos últimos 3 meses: </strong></span><span class="glyphicon glyphicon-arrow-up"></span>',
+        afterHeader: '',
+        topContentClass: '',
+        beforeTopContent: '<span><strong>Rendimento atual: </strong></span>',
         afterTopContent: '<span><strong>Custo atual por % do farm: </strong></span>',
         bottomContentClass: '',
         beforeBottomContent: '',
