@@ -13,6 +13,7 @@ html, body {
 
 span {
     white-space: pre;
+    color: #584200;
 }
 
 .hrFooter{
@@ -333,10 +334,6 @@ sir-accordion
 legend {
     font-weight: bold;
     font-size: 20px;
-}
-
-span {
-    color: red;
 }
 
 #heading {

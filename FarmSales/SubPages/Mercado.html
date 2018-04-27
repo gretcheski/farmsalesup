@@ -4,28 +4,61 @@
 
         <div class="col-lg-12">
             <h1 class="page-header">
-                Metas
-                <small>Complete as metas para receber prêmios!</small>
+                Investir
+                <small>Invista em uma Farm!</small>
             </h1>
             <ol class="breadcrumb">
                 <li>
                     <a href="../index.html">Home</a>
                 </li>
-                <li class="active">Metas</li>
+                <li class="active">Mercado</li>
             </ol>
         </div>
 
     </div>
 
-    <div ng-app="izerspa" ng-controller="progressBar" class="container">
+    <div class="row">
+        <h2>Lista de Farms Disponíveis</h2>
+        <p>Os farms estão ordenados por <strong>nível de rendimento por hora de mineração</strong>, porém a pesquisa por outros dados pode ser realizada no campo abaixo.</p>
 
-        <div class="page-header">
-            <h1><small>Km percorridos em entregas</small></h1>
-        </div>
-
-        <div>
-            <progressbar class="progress-striped active" animate="true" max="100" value="progressValue" type="success"><i><span count-to="{{countTo}}" duration="1" count-from="{{countFrom}}"></span> / 100</i></progressbar>
+        <div class="container" ng-controller="Principal">
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>Para expandir um item diretamente, (por exemplo, o terceiro da lista - 3 -), coloque a coordenada e pressione o botão cinza.</p>
+                    <div class="row">
+                        <div class="form-group col-xs-5 col-sm-3">
+                            <form ng-submit="expandByCoord()">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-model="coord" placeholder="Coordenada">
+                                    <input type="submit" style="display:none">
+                                    <div class="input-group-addon clickable" ng-click="expandByCoord()">
+                                        <!--<span class="glyphicon glyphicon-collapse-down"></span>-->
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-xs-7 col-sm-4 no-padding-left">
+                            <button ng-click="expandAll()" class="btn btn-primary" ng-class="{'disabled': accordionConfig.autoCollapse}">Expandir todos</button>
+                            <button ng-click="collapseAll()" class="btn btn-primary">Recolher todos</button>
+                        </div>
+                        <div class="col-xs-12 col-sm-5">
+                            <button ng-click="toggleAutoCollapse()" class="btn btn-primary" ng-cloak>Ativar/Desativar Expansão Automática</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <div class="content-wrap">
+                <div class="row full-height">
+                    <div id="scroller" class="col-xs-12 col-sm-12 full-height scrollable">
+                        <div id="SAC1" sir-accordion collection="accordionArray" config="accordionConfig"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
+</div>
 <!-- /.container -->
